@@ -1,6 +1,7 @@
 class EmailsController < ApplicationController
   def index
     @emails = Email.all
+    @templates = Template.all
   end
 
   def new
