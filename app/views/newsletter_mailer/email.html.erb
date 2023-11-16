@@ -1,4 +1,10 @@
 <p>
   Hi there,
 </p>
-<%= @email.body %>
+<div>
+  <% if Current.template.present? %>
+      <%= Current.template.body.gsub("{{ placeholder }}", @email.body) %> 
+  <%else%>
+      <%= @email.body %> 
+  <% end %>
+</div>

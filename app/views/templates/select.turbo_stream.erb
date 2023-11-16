@@ -3,3 +3,9 @@
     Current template: <%= Current.template.present? ? Current.template.name : "N/A"  %>
   </div>
 <% end %>
+
+<%= turbo_stream.update "destroy-template-button" do%>
+  <% if Current.template.present? %>
+    <%= link_to "Remove template", destroy_template_path(Current.template.id), data: {turbo_stream: true, turbo_method: :delete}, class: "no-underline text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"%>
+  <% end %>
+<%end%>

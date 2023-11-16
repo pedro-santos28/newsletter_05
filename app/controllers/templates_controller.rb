@@ -22,6 +22,11 @@ class TemplatesController < ApplicationController
     set_current_template(@template)
   end
 
+  def destroy
+    @template = Template.find_by(id: params[:template_id])
+    session[:template_id] = nil
+  end
+
   private
 
   def template_params
