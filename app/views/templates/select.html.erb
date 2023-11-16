@@ -3,7 +3,7 @@
     <%= link_to "New Email", new_email_path, class: "no-underline text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
     <%= link_to "New Template", templates_path, class: "no-underline text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800" %>
     
-    <div>
+    <div style="margin-top: 20px;">
       <%= form_with url: select_template_path, data: {turbo_frame: true}, class: "flex flex-col" do |f|%>
         <%= f.label :templates%>
         <%= f.collection_select(:template_id, @templates, :id, :name, promp: "select the template you wanna use" ) %>
@@ -11,7 +11,7 @@
       <%end%>
     </div>
     <p>
-      Current templateS: <%= Current.template.present? ? Current.template.name : "N/A"  %>
+      Current template: <%= Current.template.present? ? Current.template.name : "N/A"  %>
     </p>
   </div>
 <%end%>

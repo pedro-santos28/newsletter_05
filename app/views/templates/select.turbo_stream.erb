@@ -1,0 +1,5 @@
+<%= turbo_stream.update "current-template" do %>
+  <div id="current-template">
+    Current template: <%= Current.template.present? ? Current.template.name : "N/A"  %>
+  </div>
+<% end %>

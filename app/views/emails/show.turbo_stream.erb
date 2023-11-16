@@ -1,0 +1,9 @@
+<%= turbo_stream.update "email-preview" do %>
+  <% if Current.template.present? %>
+     <%= Current.template.body.gsub("{{ placeholder }}", @email.body) %> 
+  <%else%>
+    <div id="email-preview" class="flex-auto border p-8 h-[60vh]">
+      <%= @email.body %> 
+    </div
+  <% end %>
+<% end %>

@@ -1,7 +1,5 @@
 class TemplatesController < ApplicationController
 
-
-
   def new
     @template = Template.new
   end
@@ -17,10 +15,11 @@ class TemplatesController < ApplicationController
   end
 
   def select
-    @template = Template.find_by(params[:template_id])
+    @template = Template.find_by(id: params[:template_id])
     @templates = Template.all
+    @emails = Email.all
+    session[:template_id] = @template.id
     set_current_template(@template)
-
   end
 
   private

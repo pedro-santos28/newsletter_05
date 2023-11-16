@@ -1,4 +1,5 @@
 class EmailsController < ApplicationController
+
   def index
     @emails = Email.all
     @templates = Template.all
@@ -9,7 +10,7 @@ class EmailsController < ApplicationController
   end
 
   def show
-    @email = Email.find(params[:id])
+    @email = Email.find_by(id: params[:id])
   end
 
   def create
